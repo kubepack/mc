@@ -1,0 +1,15 @@
+domain: x-helm.dev
+layout: go.kubebuilder.io/v3
+projectName: helmwf
+repo: github.com/tamalsaha/helmwf
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: x-helm.dev
+  group: core
+  kind: Workflow
+  path: github.com/tamalsaha/helmwf/api/v1alpha1
+  version: v1alpha1
+version: "3"
