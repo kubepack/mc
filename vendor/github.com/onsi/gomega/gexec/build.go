@@ -104,11 +104,11 @@ func temporaryDirectory() (string, error) {
 	mu.Lock()
 	defer mu.Unlock()
 	if tmpDir == "" {
-		tmpDir, err = ioutil.TempDir("", "gexec_artifacts")
+		tmpDir, err = os.MkdirTemp("", "gexec_artifacts")
 		if err != nil {
 			return "", err
 		}
 	}
 
-	return ioutil.TempDir(tmpDir, "g")
+	return os.MkdirTemp(tmpDir, "g")
 }

@@ -52,7 +52,7 @@ func (wh *Webhook) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 	var reviewResponse Response
 	if r.Body != nil {
-		if body, err = ioutil.ReadAll(r.Body); err != nil {
+		if body, err = io.ReadAll(r.Body); err != nil {
 			wh.log.Error(err, "unable to read the body from the incoming request")
 			reviewResponse = Errored(http.StatusBadRequest, err)
 			wh.writeResponse(w, reviewResponse)
